@@ -125,6 +125,7 @@ export const loader: LoaderFunction = async ({ params }) => {
     return data.recipe;
   } catch (error) {
     console.error(error);
+    return error;
   }
 };
 

@@ -37,6 +37,7 @@ export const loader: LoaderFunction = async () => {
     return recipes;
   } catch (error) {
     console.error(error);
+    return error;
   }
 };
 
