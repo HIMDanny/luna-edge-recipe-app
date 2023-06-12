@@ -17,8 +17,8 @@ const RecipeCard: React.FC<RecipeCardProps> = ({
   const recipeId = uri.split('#')[1];
 
   return (
-    <CardWrapper>
-      <Link to={recipeId}>
+    <Link to={recipeId}>
+      <CardWrapper>
         <img
           className="img"
           src={image}
@@ -36,8 +36,8 @@ const RecipeCard: React.FC<RecipeCardProps> = ({
             ))}
           </div>
         </div>
-      </Link>
-    </CardWrapper>
+      </CardWrapper>
+    </Link>
   );
 };
 export default RecipeCard;
@@ -46,6 +46,7 @@ const CardWrapper = styled.article`
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
   border-radius: var(--border-radius);
   transition: box-shadow 0.2s;
+  height: 100%;
 
   .img {
     display: block;
