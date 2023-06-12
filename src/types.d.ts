@@ -2,7 +2,7 @@ type Ingredient = {
   text: string;
   quantity: number;
   foodId: string;
-  image: string;
+  image: string | null;
   foodCategory: string;
   food: string;
   measure: string | null;
