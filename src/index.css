@@ -104,6 +104,10 @@ button:focus-visible {
 	padding-inline: var(--side-padding);
 }
 
+.page-screen {
+	min-height: calc(100vh - 200px);
+}
+
 .section-center {
 	max-width: var(--max-width);
 	margin-inline: auto;
