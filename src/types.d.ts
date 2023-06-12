@@ -25,6 +25,8 @@ type Recipe = {
   };
   ingredients: Ingredient[];
   totalTime: number;
+  source: string;
+  url: string;
   cuisineType: string[];
   mealType: string[];
   dishType: string[];
