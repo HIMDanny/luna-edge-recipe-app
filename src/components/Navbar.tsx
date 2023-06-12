@@ -1,8 +1,14 @@
 import styled from 'styled-components';
 import { links } from '../utils/constants';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../store';
+import { signOut } from '../store/user-slice';
 
 const Navbar = () => {
+  const isLoggedIn = useSelector((state: RootState) => state.user.isLoggedIn);
+  const dispatch = useDispatch();
+
   return (
     <NavWrapper>
       <nav className="nav">
@@ -18,6 +24,13 @@ const Navbar = () => {
               <Link to={path}>{text}</Link>
             </li>
           ))}
+          <li className="link">
+            {isLoggedIn ? (
+              <button onClick={() => dispatch(signOut())}>Log out</button>
+            ) : (
+              <Link to="/login">Login</Link>
+            )}
+          </li>
         </ul>
       </nav>
     </NavWrapper>
@@ -61,6 +74,7 @@ const NavWrapper = styled.header`
   }
   .nav-links {
     display: flex;
+    align-items: center;
     gap: 1rem;
     text-transform: capitalize;
   }
