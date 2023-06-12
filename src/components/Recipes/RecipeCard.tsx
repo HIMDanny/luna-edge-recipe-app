@@ -17,7 +17,7 @@ const RecipeCard: React.FC<RecipeCardProps> = ({
   const recipeId = uri.split('#')[1];
 
   return (
-    <Link to={recipeId}>
+    <Link to={'/' + recipeId}>
       <CardWrapper>
         <img
           className="img"
