@@ -28,7 +28,7 @@ const Login = () => {
   };
 
   return (
-    <Wrapper className="page">
+    <Wrapper className="page page-screen">
       <form onSubmit={handleSubmit}>
         <div className="form-control">
           <label htmlFor="name">Username</label>
@@ -54,8 +54,6 @@ const Login = () => {
 export default Login;
 
 const Wrapper = styled.main`
-  min-height: 70vh;
-
   display: grid;
   place-items: center;
 
