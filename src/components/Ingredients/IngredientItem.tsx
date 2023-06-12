@@ -43,4 +43,8 @@ const ItemWrapper = styled.li`
   input {
     cursor: pointer;
   }
+
+  :has(input:checked) label {
+    text-decoration: line-through;
+  }
 `;
