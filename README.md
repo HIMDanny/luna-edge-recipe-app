@@ -7,4 +7,4 @@ VITE_API_KEY=
 VITE_APP_ID=
 ```
 
-You can check demo via this link: https://64874be94f871900087b3682--dazzling-peony-8bf671.netlify.app/
+You can check demo via this link: https://dazzling-peony-8bf671.netlify.app/
