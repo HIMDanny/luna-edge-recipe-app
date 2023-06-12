@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import recipes from '../utils/recipes';
 import { Button, IngredientsList } from '../components';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,10 +7,11 @@ import {
   addRecipeToFavourites,
   removeRecipeFromFavourites,
 } from '../store/favourites-slice';
-
-const recipe = recipes.hits[0].recipe;
+import { useLoaderData, type LoaderFunction } from 'react-router-dom';
+import { fetchRecipes } from '../axios';
 
 const Recipe = () => {
+  const recipe = useLoaderData() as Recipe;
   const isLoggedIn = useSelector((state: RootState) => state.user.isLoggedIn);
   const isInFavourite = useSelector(
     (state: RootState) =>
@@ -116,6 +116,18 @@ const Recipe = () => {
 };
 export default Recipe;
 
+export const loader: LoaderFunction = async ({ params }) => {
+  const { recipeId } = params as { recipeId: string };
+
+  try {
+    const { data } = await fetchRecipes.get(recipeId);
+
+    return data.recipe;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 const Wrapper = styled.main`
   h2 {
     margin-block: 0 1rem;
@@ -123,7 +135,7 @@ const Wrapper = styled.main`
   }
 
   .recipe-header {
-    max-width: var(--max-width);
+    max-width: 900px;
     margin-inline: auto;
   }
 
