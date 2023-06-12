@@ -6,8 +6,12 @@ const Favourites = () => {
   const recipes = useSelector((state: RootState) => state.favourites.recipes);
 
   return (
-    <main className="page">
-      <RecipesList recipes={recipes} />
+    <main className="page page-screen">
+      {recipes.length > 0 ? (
+        <RecipesList recipes={recipes} />
+      ) : (
+        <h2>You have no favourites yet</h2>
+      )}
     </main>
   );
 };
